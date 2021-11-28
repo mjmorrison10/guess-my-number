@@ -1,13 +1,11 @@
 'use strict';
 
-// const message = document.querySelector('.message');
 const number = document.querySelector('.number');
 const score = document.querySelector('.score');
 const guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
 const hiscore = document.querySelector('.highscore');
 const reset = document.querySelector('.again');
-// const background = document.body;
 
 let winningNumber = Math.floor(Math.random() * 20 + 1);
 
@@ -20,16 +18,12 @@ const backgroundColor = function (color) {
 };
 
 const errorMessage = function (color) {
-  background.style.backgroundColor = color;
+  document.body.style.backgroundColor = color;
   score.textContent = parseInt(score.textContent) - 1;
   timeOut('#222');
 };
 
 console.log('winning number', winningNumber);
-// message.textContent = "Correct number!";
-
-// number.textContent = 13;
-// score.textContent = 20;
 
 check.addEventListener('click', checkWinner);
 
@@ -54,7 +48,7 @@ function checkWinner(e) {
 
 function timeOut(color) {
   setTimeout(function () {
-    background.style.backgroundColor = color;
+    backgroundColor(color)
   }, 100);
 }
 
