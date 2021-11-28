@@ -30,7 +30,11 @@ check.addEventListener('click', checkWinner);
 function checkWinner(e) {
   e.preventDefault();
   console.log(guess.value);
-  if (guess.value == winningNumber) {
+  if (score.textContent < 2) {
+    displayMessage('You lost the game.');
+    backgroundColor('red');
+    score.textContent--;
+  } else if (guess.value == winningNumber) {
     displayMessage('Correct number!');
     backgroundColor('green');
     number.textContent = winningNumber;
@@ -48,7 +52,7 @@ function checkWinner(e) {
 
 function timeOut(color) {
   setTimeout(function () {
-    backgroundColor(color)
+    backgroundColor(color);
   }, 100);
 }
 
